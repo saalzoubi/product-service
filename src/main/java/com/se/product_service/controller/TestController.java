@@ -1,4 +1,4 @@
-package com.se.user_service.controller;
+package com.se.product_service.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
-package com.se.user_service.controller;
+package com.se.product_service.controller;
 
-import com.se.user_service.exception.UserServiceException;
+import com.se.product_service.exception.ProductServiceException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -13,7 +13,6 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    // Handles @Valid validation errors (e.g., in UserRegistrationRequest)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationErrors(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
@@ -31,8 +30,8 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
-    @ExceptionHandler(UserServiceException.class)
-    public ResponseEntity<String> handleUserServiceException(UserServiceException ex) {
+    @ExceptionHandler(ProductServiceException.class)
+    public ResponseEntity<String> handleProductServiceException(ProductServiceException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 

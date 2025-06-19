@@ -1,4 +1,4 @@
-package com.se.user_service.entity;
+package com.se.product_service.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -10,22 +10,22 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity(name = "app_user")
-@Table(name = "app_user")
+@Entity(name = "product")
+@Table(name = "product")
 @EntityListeners(AuditingEntityListener.class)
 @Setter
 @Getter
-public class UserEntity {
+public class ProductEntity {
     @Id
     private String id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private String email;
     @Column
-    private String password;
-    @Column(name = "phone_number", unique = true)
-    private String phoneNumber;
+    private String description;
+    @Column
+    private double price;
+    @Column
+    private int quantity;
 
     @CreatedDate
     @Column(updatable = false)
